@@ -18,7 +18,6 @@ public class Main extends Application {
         this.loginScreen = new LoginScreen(this, controller);
         this.staffDashboard = new StaffDashboard(this, controller);
 
-        // Test database connection
         testDatabaseConnection();
 
         primaryStage.setTitle("KoDaR Banking System");
@@ -42,7 +41,6 @@ public class Main extends Application {
         }
     }
 
-    // Navigation methods
     public void showLoginScreen() {
         loginScreen.show(primaryStage);
     }
