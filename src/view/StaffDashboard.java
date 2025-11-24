@@ -29,10 +29,7 @@ public class StaffDashboard {
         BorderPane layout = new BorderPane();
         layout.setStyle("-fx-background-color: #f8f9fa;");
 
-        // Header
         layout.setTop(createHeader());
-        
-        // Menu Bar
         layout.setCenter(createDashboardContent());
 
         Scene scene = new Scene(layout, 1200, 800);
@@ -70,14 +67,12 @@ public class StaffDashboard {
         MenuBar menuBar = new MenuBar();
         menuBar.setStyle("-fx-background-color: #34495e;");
 
-        // Customer Management Menu
         Menu customerMenu = new Menu("Customer Management");
         customerMenu.setStyle("-fx-text-fill: white;");
         MenuItem createCustomer = new MenuItem("Create New Customer");
         MenuItem viewCustomers = new MenuItem("View All Customers");
         customerMenu.getItems().addAll(createCustomer, viewCustomers);
 
-        // Account Management Menu
         Menu accountMenu = new Menu("Account Management");
         accountMenu.setStyle("-fx-text-fill: white;");
         MenuItem createAccount = new MenuItem("Create New Account");
@@ -85,7 +80,6 @@ public class StaffDashboard {
         MenuItem closeAccount = new MenuItem("Close Account");
         accountMenu.getItems().addAll(createAccount, viewAccounts, closeAccount);
 
-        // Transactions Menu
         Menu transactionMenu = new Menu("Transactions");
         transactionMenu.setStyle("-fx-text-fill: white;");
         MenuItem processDeposit = new MenuItem("Process Deposit");
@@ -122,7 +116,6 @@ public class StaffDashboard {
         dashboardGrid.setVgap(20);
         dashboardGrid.setAlignment(Pos.CENTER);
 
-        // Get actual statistics
         java.util.List<model.Customer> customers = controller.getAllCustomers();
         java.util.List<model.Account> accounts = controller.getAllAccounts();
         double totalBalance = accounts.stream().mapToDouble(model.Account::getBalance).sum();
